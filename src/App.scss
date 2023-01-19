@@ -1,0 +1,12 @@
+.App {
+  padding-top: 15px;
+  max-width: 1204px;
+  margin: 0 auto;
+  a {
+    color: #344050;
+    text-decoration: none;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}

@@ -1,0 +1,24 @@
+.products-table {
+  &__title {
+    background-color: #edf2f8;
+  }
+  &__category {
+    color: #9da8ba;
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 17px;
+  }
+  th {
+    color: #4d5969;
+    font-weight: 600;
+    line-height: 17px;
+    font-size: 13px;
+    p {
+      margin-bottom: 7px;
+    }
+    img {
+      max-width: 60px;
+      max-height: 40px;
+    }
+  }
+}

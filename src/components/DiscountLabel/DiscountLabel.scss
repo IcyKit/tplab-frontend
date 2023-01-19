@@ -1,0 +1,9 @@
+.discount-label {
+  position: relative;
+  &__price {
+    position: absolute;
+    left: 20px;
+    top: 15px;
+    color: white;
+  }
+}

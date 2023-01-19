@@ -1,0 +1,39 @@
+.product-card {
+  max-width: 100%;
+  margin-top: 48px;
+  background: #fff;
+  padding: 40px 80px;
+  &__heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    &-logo {
+      max-width: 160px;
+    }
+    &-sale {
+      display: inline;
+      width: 100%;
+      &-title {
+        position: absolute;
+        left: 10%;
+      }
+    }
+  }
+  &__content {
+    display: flex;
+    justify-content: space-between;
+    img {
+      max-width: 415px;
+      max-height: 415px;
+    }
+    &_right {
+      h2 {
+        color: #344050;
+        font-weight: 600;
+        font-size: 37px;
+        line-height: 45px;
+      }
+    }
+  }
+}
