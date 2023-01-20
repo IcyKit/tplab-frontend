@@ -7,7 +7,7 @@ export const fetchProducts = createAsyncThunk(
       "https://files.rerotor.ru/rerotor/products.json"
     );
     const data = await response.json();
-    return data.sort((a, b) => (a.name > b.name ? true : false));
+    return data.sort((a, b) => (a.name > b.name ? 1 : -1));
   }
 );
 

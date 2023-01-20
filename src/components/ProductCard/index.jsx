@@ -1,39 +1,50 @@
 import "./ProductCard.scss";
 import DiscountLabel from "../DiscountLabel";
 import Rating from "@mui/material/Rating";
+import {useParams} from "react-router-dom";
+import {useSelector} from "react-redux";
+import Disclaimer from "../Disclaimer";
 
 const ProductCard = () => {
+  const {id} = useParams()
+  const {discount, logo_url, image_url, stars, name, disclaimer} = useSelector((state) => state.products.products[id]);
+
   return (
+    <>
     <div className="product-card">
       <div className="product-card__heading">
-        <DiscountLabel discount={55} />
+        <DiscountLabel discount={discount} />
         <img
           className="product-card__heading-logo"
-          src="https://myzoograd.ru/upload/iblock/f37/f3733a014d377f291a8d6968badaca27.jpg"
+          src={logo_url}
         />
       </div>
       <div className="product-card__content">
-        <img src="https://4lapy.ru/resize/800x800/upload/iblock/714/7140b69c9d49dd89f1d35b1a99e27d18.jpg" />
+        <img src={image_url} />
         <div className="product-card__content_right">
-          <h2>Сухой корм для взрослых собак мелких и карликовых пород</h2>
+          <h2>{name}</h2>
+          <div className="product-card__content_right-rating">
+            <Rating value={stars} />
+          </div>
           <div className="product-card__content_right-prices">
-            <div className="product-card__content-right-prices_old-price">
+            <div className="product-card__content_right-prices_old-price">
               <h3>
-                659<span>99</span>
+                659<sup>99</sup>Р
               </h3>
               <p>СТАРАЯ ЦЕНА</p>
             </div>
-            <div className="product-card__content-right-prices_new-price">
-              <Rating value={4} />
+            <div className="product-card__content_right-prices_new-price">
               <h3>
-                359<span>99</span>
+                359<sup>99</sup>Р
               </h3>
-              <p>Цена по акции</p>
+              <p>ЦЕНА ПО АКЦИИ</p>
             </div>
           </div>
         </div>
       </div>
     </div>
+  {disclaimer && (<Disclaimer disclaimer={disclaimer} />)}
+  </>
   );
 };
 

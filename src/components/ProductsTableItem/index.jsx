@@ -7,6 +7,7 @@ const ProductsTableItem = ({
   end_date,
   category,
   views,
+  index
 }) => {
   return (
     <tr>
@@ -14,7 +15,7 @@ const ProductsTableItem = ({
         <img src={image_url} alt="image_url" />
       </th>
       <th>
-        <Link to="/product">
+        <Link to={`/product/${index}`}>
           <p>{name}</p>
         </Link>
         <p className="products-table__category">{category}</p>

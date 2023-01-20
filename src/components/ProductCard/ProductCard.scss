@@ -9,7 +9,7 @@
     align-items: center;
     margin-bottom: 30px;
     &-logo {
-      max-width: 160px;
+      max-width: 100px;
     }
     &-sale {
       display: inline;
@@ -33,6 +33,60 @@
         font-weight: 600;
         font-size: 37px;
         line-height: 45px;
+        margin-bottom: 40px;
+        max-width: 540px;
+      }
+      &-rating {
+        display: flex;
+        justify-content: flex-end;
+        margin-bottom: 20px;
+      }
+      &-prices {
+        display: flex;
+        align-items: flex-end;
+        justify-content: space-between;
+        &_old-price {
+          color: #94979c;
+          position: relative;
+          h3 {
+            font-weight: 600;
+            line-height: 17px;
+            font-size: 32px;
+            margin-bottom: 10px;
+            sup {
+              font-size: 20px;
+            }
+          }
+          h3:before {
+            content: "";
+            border-bottom: 4px solid red;
+            position: absolute;
+            top: 0;
+            left: -5px;
+            width: 115px;
+            height: 15%;
+          }
+          p {
+            font-weight: 600;
+            line-height: 27px;
+          }
+        }
+        &_new-price {
+          color: #344050;
+          h3 {
+            font-weight: 600;
+            font-size: 52px;
+            sup {
+              font-size: 28px;
+            }
+          }
+          p {
+            font-size: 18px;
+            font-weight: 600;
+            color: #6f7885;
+            text-align: right;
+          }
+        }
       }
     }
   }

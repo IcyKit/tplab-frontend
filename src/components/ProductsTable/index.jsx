@@ -5,6 +5,7 @@ import { useSelector } from "react-redux";
 import ProductsTableItem from "../ProductsTableItem";
 import ProductsPagination from "../ProductsPagination";
 import { useEffect } from "react";
+import {Link} from "react-router-dom";
 
 const ProductsTable = () => {
   const { products } = useSelector((state) => state.products);
@@ -36,7 +37,7 @@ const ProductsTable = () => {
         </thead>
         <tbody>
           {products
-            .map((product) => (
+            .map((product, index) => (
               <ProductsTableItem
                 name={product.name}
                 image_url={product.image_url}
@@ -44,6 +45,7 @@ const ProductsTable = () => {
                 start_date={product.start_date}
                 end_date={product.end_date}
                 views={product.views}
+                index={index}
               />
             ))
             .slice(firstIndex, lastIndex)}

@@ -1,17 +1,23 @@
 import "./App.scss";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route} from "react-router-dom";
 import Home from "./pages/Home";
-import { store } from "./redux/store";
-import { Provider } from "react-redux";
+
 import Product from "./pages/Product";
+import {fetchProducts} from "./redux/slices/products";
+import {useDispatch} from "react-redux";
+import {useEffect} from "react";
 
 function App() {
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(fetchProducts());
+  }, []);
+
   return (
     <div className="App">
-      <Provider store={store}>
         <Router>
           <Switch>
-            <Route path="/product">
+            <Route path="/product/:id">
               <Product />
             </Route>
             <Route path="/">
@@ -19,7 +25,6 @@ function App() {
             </Route>
           </Switch>
         </Router>
-      </Provider>
     </div>
   );
 }
