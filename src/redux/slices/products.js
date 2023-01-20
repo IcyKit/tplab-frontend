@@ -18,12 +18,27 @@ const initialState = {
 export const productsSlice = createSlice({
   name: "products",
   initialState,
-  reducers: {},
+  reducers: {
+    sortProducts: (state, action) => {
+      console.log(action.payload);
+      if (action.payload.queue === "asc") {
+        state.products = state.products.sort((a, b) =>
+          a[action.payload.sort] < b[action.payload.sort] ? 1 : -1
+        );
+      } else {
+        state.products = state.products.sort((a, b) =>
+          a[action.payload.sort] < b[action.payload.sort] ? -1 : 1
+        );
+      }
+    },
+  },
   extraReducers: (builder) => {
     builder.addCase(fetchProducts.fulfilled, (state, action) => {
       state.products = action.payload;
     });
   },
 });
+
+export const { sortProducts } = productsSlice.actions;
 
 export default productsSlice.reducer;

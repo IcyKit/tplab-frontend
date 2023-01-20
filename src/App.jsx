@@ -30,3 +30,5 @@ function App() {
 }
 
 export default App;
+
+// 7.5 Балла

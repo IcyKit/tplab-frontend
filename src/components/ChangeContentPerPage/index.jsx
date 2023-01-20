@@ -10,6 +10,7 @@ const ChangeContentPerPage = ({setContentPerPage, products}) => {
         id="contentPerPage"
         name="select"
         type="select"
+        defaultValue={4}
       >
         <option onClick={() => setContentPerPage(2)}>
           2
