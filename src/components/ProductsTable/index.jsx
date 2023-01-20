@@ -4,28 +4,25 @@ import { useState } from "react";
 import { useSelector } from "react-redux";
 import ProductsTableItem from "../ProductsTableItem";
 import ProductsPagination from "../ProductsPagination";
-import { useEffect } from "react";
-import {Link} from "react-router-dom";
+import ChangeContentPerPage from "../ChangeContentPerPage";
 
 const ProductsTable = () => {
   const { products } = useSelector((state) => state.products);
-  const [firstIndex, setFirstIndex] = useState(0);
-  const [lastIndex, setLastIndex] = useState(4);
-  const contentPerPage = 4;
+  const [contentPerPage, setContentPerPage] = useState(4);
+  const [currentPage, setCurrentPage] = useState(1);
+  const lastIndex = currentPage * contentPerPage;
+  const firstIndex = lastIndex - contentPerPage;
 
-  const updatePage = (contentPerPage, index) => {
-    setLastIndex(index * contentPerPage);
-    setFirstIndex(lastIndex - contentPerPage);
-  };
-
-  useEffect(() => {
-    setFirstIndex(lastIndex - contentPerPage);
-  }, [lastIndex]);
-
+  console.log(firstIndex, lastIndex)
   return (
     <>
-      <ProductsPagination products={products} updatePage={updatePage} />
-      <Table className="products-table" hover responsive size="">
+      <div className={`d-flex justify-content-${contentPerPage < products.length ? 'between' : 'end'} align-items-end`}>
+        {
+          contentPerPage < products.length && <ProductsPagination contentPerPage={contentPerPage} products={products} setCurrentPage={setCurrentPage} />
+        }
+        <ChangeContentPerPage setContentPerPage={setContentPerPage} products={products} />
+      </div>
+        <Table className="products-table" hover responsive size="">
         <thead>
           <tr className="products-table__title">
             <th>Фото</th>

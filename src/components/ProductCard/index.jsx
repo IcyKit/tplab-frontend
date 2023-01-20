@@ -4,46 +4,39 @@ import Rating from "@mui/material/Rating";
 import {useParams} from "react-router-dom";
 import {useSelector} from "react-redux";
 import Disclaimer from "../Disclaimer";
+import OldPrice from "../OldPrice";
+import NewPrice from "../NewPrice";
 
 const ProductCard = () => {
   const {id} = useParams()
-  const {discount, logo_url, image_url, stars, name, disclaimer} = useSelector((state) => state.products.products[id]);
+  const product = useSelector((state) => state.products.products[id]);
 
   return (
     <>
     <div className="product-card">
-      <div className="product-card__heading">
-        <DiscountLabel discount={discount} />
+      <div className={`product-card__heading ${product?.discount ? 'justify-content-between' : 'justify-content-end'}`}>
+        {parseInt(product?.discount) ? (<DiscountLabel discount={product?.discount} />) : null}
         <img
           className="product-card__heading-logo"
-          src={logo_url}
+          src={product?.logo_url}
+          alt='logo'
         />
       </div>
       <div className="product-card__content">
-        <img src={image_url} />
+        <img src={product?.image_url} alt='image' />
         <div className="product-card__content_right">
-          <h2>{name}</h2>
+          <h2>{product?.name}</h2>
           <div className="product-card__content_right-rating">
-            <Rating value={stars} />
+            <Rating value={product?.stars} />
           </div>
           <div className="product-card__content_right-prices">
-            <div className="product-card__content_right-prices_old-price">
-              <h3>
-                659<sup>99</sup>Р
-              </h3>
-              <p>СТАРАЯ ЦЕНА</p>
-            </div>
-            <div className="product-card__content_right-prices_new-price">
-              <h3>
-                359<sup>99</sup>Р
-              </h3>
-              <p>ЦЕНА ПО АКЦИИ</p>
-            </div>
+            <OldPrice old_price={product?.old_price} />
+            {product?.new_price && <NewPrice new_price={product?.new_price} />}
           </div>
         </div>
       </div>
     </div>
-  {disclaimer && (<Disclaimer disclaimer={disclaimer} />)}
+  {product?.disclaimer && (<Disclaimer disclaimer={product?.disclaimer} />)}
   </>
   );
 };
