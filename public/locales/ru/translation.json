@@ -6,5 +6,18 @@
   "search": "Поиск...",
   "change-language": "Выбрать язык",
   "old-price": "Старая цена",
-  "new-price": "Цена по акции"
+  "new-price": "Цена по акции",
+  "photo": "Фото",
+  "name": "Название",
+  "views": "Просмотры",
+  "start-date": "Начало ротации",
+  "end-date": "Конец ротации",
+  "sort-name-asc": "по названию (ASC)",
+  "sort-name-desc": "по названию (DESC)",
+  "sort-views-asc": "по просмотрам (ASC)",
+  "sort-views-desc": "по просмотрам (DESC)",
+  "sort-start-asc": "по дате начала (ASC)",
+  "sort-start-desc": "по дате начала (DESC)",
+  "sort-end-asc": "по дате конца (ASC)",
+  "sort-end-desc": "по дате конца (DESC)"
 }

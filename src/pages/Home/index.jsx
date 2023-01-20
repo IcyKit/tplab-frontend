@@ -3,18 +3,11 @@ import Sort from "../../components/Sort";
 import "./Home.scss";
 import { useState } from "react";
 import { useLocation } from "react-router-dom";
-import {
-  Dropdown,
-  DropdownToggle,
-  DropdownMenu,
-  DropdownItem,
-} from "reactstrap";
-
 import { useTranslation } from "react-i18next";
 import ChangeLanguage from "../../components/ChangeLanguage";
 
 const Home = () => {
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
   const location = useLocation();
   if (location.pathname === "/") {
     document.body.style = "background: #FFFFFF";

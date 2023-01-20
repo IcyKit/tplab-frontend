@@ -6,5 +6,18 @@
   "search": "Search...",
   "change-language": "Change language",
   "old-price": "Old price",
-  "new-price": "Share price"
+  "new-price": "Share price",
+  "photo": "Photo",
+  "name": "Name",
+  "views": "Views",
+  "start-date": "Begging of rotation",
+  "end-date": "Ending of rotation",
+  "sort-name-asc": "by name (ASC)",
+  "sort-name-desc": "by name (DESC)",
+  "sort-views-asc": "by views (ASC)",
+  "sort-views-desc": "by views (DESC)",
+  "sort-start-asc": "by start date (ASC)",
+  "sort-start-desc": "by start date (DESC)",
+  "sort-end-asc": "by end date (ASC)",
+  "sort-end-desc": "by end date (DESC)"
 }

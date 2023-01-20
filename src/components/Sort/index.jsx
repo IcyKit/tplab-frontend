@@ -7,42 +7,42 @@ import { useTranslation } from "react-i18next";
 const Sort = ({ setSort }) => {
   const sorting = [
     {
-      name: "по названию (ASC)",
+      name: "sort-name-asc",
       type: "name",
       queue: "asc",
     },
     {
-      name: "по названию (DESC)",
+      name: "sort-name-desc",
       type: "name",
       queue: "desc",
     },
     {
-      name: "по просмотрам (ASC)",
+      name: "sort-views-asc",
       type: "views",
       queue: "asc",
     },
     {
-      name: "по просмотрам (DESC)",
+      name: "sort-views-desc",
       type: "views",
       queue: "desc",
     },
     {
-      name: "по дате начала (ASC)",
+      name: "sort-start-asc",
       type: "start_date",
       queue: "asc",
     },
     {
-      name: "по дате начала (DESC)",
+      name: "sort-start-desc",
       type: "start_date",
       queue: "desc",
     },
     {
-      name: "по дате окончания (ASC)",
+      name: "sort-end-asc",
       type: "end_date",
       queue: "asc",
     },
     {
-      name: "по дате окончания (DESC)",
+      name: "sort-end-desc",
       type: "end_date",
       queue: "desc",
     },
@@ -61,7 +61,7 @@ const Sort = ({ setSort }) => {
                 dispatch(sortProducts({ sort: sort.type, queue: sort.queue }))
               }
             >
-              {sort.name}
+              {t(sort.name)}
             </option>
           ))}
         </Input>
