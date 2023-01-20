@@ -2,6 +2,7 @@ import "./Sort.scss";
 import { FormGroup, Input } from "reactstrap";
 import { useDispatch } from "react-redux";
 import { sortProducts } from "../../redux/slices/products";
+import { useTranslation } from "react-i18next";
 
 const Sort = ({ setSort }) => {
   const sorting = [
@@ -46,12 +47,12 @@ const Sort = ({ setSort }) => {
       queue: "desc",
     },
   ];
-
+  const { t } = useTranslation();
   const dispatch = useDispatch();
 
   return (
     <div className="sort d-flex flex-row align-items-center">
-      <p>Сортировать:</p>
+      <p>{t("sort")}</p>
       <FormGroup>
         <Input id="exampleSelect" name="select" type="select">
           {sorting.map((sort) => (
