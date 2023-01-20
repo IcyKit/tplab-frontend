@@ -1,13 +1,18 @@
 import { Link } from "react-router-dom";
+import { Product } from "../../@types";
 
-const ProductsTableItem = ({
+interface ProductsTableProps extends Product {
+  index: number;
+}
+
+const ProductsTableItem: React.FC<ProductsTableProps> = ({
   image_url,
   name,
   start_date,
   end_date,
   category,
   views,
-  index
+  index,
 }) => {
   return (
     <tr>

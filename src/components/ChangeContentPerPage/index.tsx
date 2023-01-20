@@ -1,7 +1,16 @@
 import { FormGroup, Label, Input } from "reactstrap";
 import { useTranslation } from "react-i18next";
+import { Product } from "../../@types";
 
-const ChangeContentPerPage = ({ setContentPerPage, products }) => {
+interface ChangeContentPerPageProps {
+  setContentPerPage: (number: number) => any;
+  products: Product[];
+}
+
+const ChangeContentPerPage: React.FC<ChangeContentPerPageProps> = ({
+  setContentPerPage,
+  products,
+}) => {
   const { t } = useTranslation();
 
   return (
@@ -13,7 +22,7 @@ const ChangeContentPerPage = ({ setContentPerPage, products }) => {
         <option onClick={() => setContentPerPage(4)}>4</option>
         <option onClick={() => setContentPerPage(5)}>5</option>
         <option onClick={() => setContentPerPage(products.length)}>
-          Весь товар
+          {t("all-products")}
         </option>
       </Input>
     </FormGroup>

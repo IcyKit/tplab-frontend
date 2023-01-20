@@ -4,8 +4,14 @@ import { useDispatch } from "react-redux";
 import { sortProducts } from "../../redux/slices/products";
 import { useTranslation } from "react-i18next";
 
-const Sort = ({ setSort }) => {
-  const sorting = [
+const Sort = () => {
+  interface SortingTypes {
+    name: string;
+    type: "name" | "views" | "start_date" | "end_date";
+    queue: string;
+  }
+
+  const sorting: SortingTypes[] = [
     {
       name: "sort-name-asc",
       type: "name",

@@ -7,17 +7,24 @@ import ProductsPagination from "../ProductsPagination";
 import ChangeContentPerPage from "../ChangeContentPerPage";
 import SearchProduct from "../SearchProduct";
 import { useTranslation } from "react-i18next";
+import { Product } from "../../@types";
 
-const ProductsTable = ({ sort: { type, queue } }) => {
+interface IProductsAndIndex extends Product {
+  index: number;
+}
+
+const ProductsTable: React.FC = () => {
   const { t } = useTranslation();
-  const { products } = useSelector((state) => state.products);
+  const { products } = useSelector(
+    (state: { [key: string]: any }) => state.products
+  );
   const [contentPerPage, setContentPerPage] = useState(4);
   const [currentPage, setCurrentPage] = useState(1);
   const lastIndex = currentPage * contentPerPage;
   const firstIndex = lastIndex - contentPerPage;
   const [searchValue, setSearchValue] = useState("");
 
-  const onSearchInput = (e) => {
+  const onSearchInput = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearchValue(e.target.value);
   };
 
@@ -50,11 +57,11 @@ const ProductsTable = ({ sort: { type, queue } }) => {
         <tbody>
           {products
             .filter(
-              (product) =>
+              (product: Product) =>
                 product.name.includes(searchValue) ||
                 product.category.includes(searchValue)
             )
-            .map((product, index) => (
+            .map((product: IProductsAndIndex, index: number) => (
               <ProductsTableItem
                 name={product.name}
                 image_url={product.image_url}

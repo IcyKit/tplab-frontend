@@ -10,6 +10,7 @@
   "photo": "Photo",
   "name": "Name",
   "views": "Views",
+  "all-products": "All products",
   "start-date": "Begging of rotation",
   "end-date": "Ending of rotation",
   "sort-name-asc": "by name (ASC)",

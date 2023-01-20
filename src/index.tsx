@@ -6,11 +6,11 @@ import { store } from "./redux/store";
 import { Provider } from "react-redux";
 import "./18n";
 
-const root = ReactDOM.createRoot(document.getElementById("root"));
+const root = ReactDOM.createRoot(document.getElementById("root")!);
 root.render(
   <Provider store={store}>
-    {/* <Suspense fallback={<div>Загрузка...</div>}> */}
-    <App />
-    {/* </Suspense> */}
+    <Suspense fallback={<div>Загрузка...</div>}>
+      <App />
+    </Suspense>
   </Provider>
 );

@@ -2,15 +2,20 @@ import { FormGroup, Input } from "reactstrap";
 import "./SearchProduct.scss";
 import { useTranslation } from "react-i18next";
 
-const SearchProduct = ({ onSearchInput }) => {
+interface SearchProductProps {
+  onSearchInput: (e: React.ChangeEvent<HTMLInputElement>) => void;
+}
+
+const SearchProduct: React.FC<SearchProductProps> = ({ onSearchInput }) => {
   const { t } = useTranslation();
+  const placeholderText = t("search");
   return (
     <FormGroup>
       <Input
         className="product-search"
         id="search"
         name="search"
-        placeholder={t("search")}
+        placeholder={placeholderText}
         onChange={(e) => onSearchInput(e)}
       />
     </FormGroup>

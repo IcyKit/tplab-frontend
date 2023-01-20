@@ -1,7 +1,20 @@
 import { Pagination, PaginationItem, PaginationLink } from "reactstrap";
+import { Product } from "../../@types";
 
-const ProductsPagination = ({ products, setCurrentPage, contentPerPage }) => {
-  const pages = new Array(Math.ceil(products.length / contentPerPage)).fill();
+interface ProductsPaginationProps {
+  products: Product[];
+  setCurrentPage: (page: number) => void;
+  contentPerPage: number;
+}
+
+const ProductsPagination: React.FC<ProductsPaginationProps> = ({
+  products,
+  setCurrentPage,
+  contentPerPage,
+}) => {
+  const pages: string[] = new Array(
+    Math.ceil(products.length / contentPerPage)
+  ).fill("");
 
   return (
     <Pagination>

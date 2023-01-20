@@ -9,7 +9,8 @@ const Product = () => {
   const location = useLocation();
 
   if (location.pathname.includes("/product")) {
-    document.body.style = "background: #EDF2F8";
+    document.body.classList.add("white-bg");
+    document.body.classList.add("blue-bg");
   }
 
   return (

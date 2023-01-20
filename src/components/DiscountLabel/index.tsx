@@ -1,10 +1,14 @@
 import Arrow from "../../assets/arrow.png";
 import "./DiscountLabel.scss";
 
-const DiscountLabel = ({ discount }) => {
+interface DiscountLabelProps {
+  discount: string;
+}
+
+const DiscountLabel: React.FC<DiscountLabelProps> = ({ discount }) => {
   return (
     <div className="discount-label">
-      <img src={Arrow} />
+      <img src={Arrow} alt="Price" />
       <p className="discount-label__price">-{discount}%</p>
     </div>
   );

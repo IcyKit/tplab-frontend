@@ -1,7 +1,6 @@
 import ProductsTable from "../../components/ProductsTable";
 import Sort from "../../components/Sort";
 import "./Home.scss";
-import { useState } from "react";
 import { useLocation } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import ChangeLanguage from "../../components/ChangeLanguage";
@@ -10,10 +9,9 @@ const Home = () => {
   const { t } = useTranslation();
   const location = useLocation();
   if (location.pathname === "/") {
-    document.body.style = "background: #FFFFFF";
+    document.body.classList.remove("blue-bg");
+    document.body.classList.add("white-bg");
   }
-
-  const [sort, setSort] = useState({ type: "name", queue: "asc" });
 
   return (
     <div className="home">
@@ -21,8 +19,8 @@ const Home = () => {
         <h1 className="home__title">{t("heading")}</h1>
         <ChangeLanguage />
       </div>
-      <Sort setSort={setSort} />
-      <ProductsTable sort={sort} />
+      <Sort />
+      <ProductsTable />
     </div>
   );
 };

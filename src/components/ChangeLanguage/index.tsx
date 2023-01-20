@@ -7,11 +7,13 @@ import {
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
 
+type languageType = "ru" | "en";
+
 const ChangeLanguage = () => {
   const { t, i18n } = useTranslation();
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState<boolean>(false);
 
-  const changeLanguage = (language) => {
+  const changeLanguage = (language: languageType) => {
     i18n.changeLanguage(language);
   };
 
