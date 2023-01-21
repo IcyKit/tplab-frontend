@@ -3,13 +3,13 @@ import {
   DropdownItem,
   DropdownMenu,
   DropdownToggle,
-} from "reactstrap";
-import { useState } from "react";
-import { useTranslation } from "react-i18next";
+} from 'reactstrap';
+import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 
-type languageType = "ru" | "en";
+type languageType = 'ru' | 'en';
 
-const ChangeLanguage = () => {
+const ChangeLanguage: React.FC = () => {
   const { t, i18n } = useTranslation();
   const [isOpen, setIsOpen] = useState<boolean>(false);
 
@@ -23,12 +23,12 @@ const ChangeLanguage = () => {
       isOpen={isOpen}
       direction="down"
     >
-      <DropdownToggle caret>{t("change-language")}</DropdownToggle>
+      <DropdownToggle caret>{t('change-language')}</DropdownToggle>
       <DropdownMenu>
-        <DropdownItem onClick={() => changeLanguage("ru")}>
+        <DropdownItem onClick={() => changeLanguage('ru')}>
           Русский
         </DropdownItem>
-        <DropdownItem onClick={() => changeLanguage("en")}>
+        <DropdownItem onClick={() => changeLanguage('en')}>
           English
         </DropdownItem>
       </DropdownMenu>
