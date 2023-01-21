@@ -1,14 +1,20 @@
 import { FormGroup, Input } from 'reactstrap';
+import { useState, useEffect } from 'react';
 import './SearchProduct.scss';
 import { useTranslation } from 'react-i18next';
+import { useDispatch } from 'react-redux';
+import { searchProduct } from '../../redux/slices/products';
 
-interface SearchProductProps {
-  onSearchInput: (e: React.ChangeEvent<HTMLInputElement>) => void;
-}
-
-const SearchProduct: React.FC<SearchProductProps> = ({ onSearchInput }) => {
+const SearchProduct: React.FC = () => {
   const { t } = useTranslation();
+  const dispatch = useDispatch();
   const placeholderText = t('search');
+  const [searchValue, setSearchValue] = useState<string>('');
+
+  useEffect(() => {
+    dispatch(searchProduct(searchValue));
+  }, [searchValue]);
+
   return (
     <FormGroup>
       <Input
@@ -16,7 +22,7 @@ const SearchProduct: React.FC<SearchProductProps> = ({ onSearchInput }) => {
         id="searchProduct"
         name="searchProduct"
         placeholder={placeholderText}
-        onChange={(e) => onSearchInput(e)}
+        onChange={(e) => setSearchValue(e.target.value)}
       />
     </FormGroup>
   );

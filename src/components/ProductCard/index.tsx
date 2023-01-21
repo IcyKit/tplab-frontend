@@ -1,12 +1,12 @@
-import "./ProductCard.scss";
-import DiscountLabel from "../DiscountLabel";
-import Rating from "@mui/material/Rating";
-import { useParams } from "react-router-dom";
-import { useSelector } from "react-redux";
-import Disclaimer from "../Disclaimer";
-import OldPrice from "../OldPrice";
-import NewPrice from "../NewPrice";
-import { Product } from "../../@types";
+import './ProductCard.scss';
+import DiscountLabel from '../DiscountLabel';
+import Rating from '@mui/material/Rating';
+import { useParams } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+import Disclaimer from '../Disclaimer';
+import OldPrice from '../OldPrice';
+import NewPrice from '../NewPrice';
+import { Product } from '../../@types';
 
 const ProductCard: React.FC = () => {
   const { id } = useParams<{ id: string }>();
@@ -18,10 +18,11 @@ const ProductCard: React.FC = () => {
     <>
       <div className="product-card">
         <div
-          className={`product-card__heading ${product?.discount
-              ? "justify-content-between"
-              : "justify-content-end"
-            }`}
+          className={`product-card__heading ${
+            product?.discount
+              ? 'justify-content-between'
+              : 'justify-content-end'
+          }`}
         >
           {parseInt(product?.discount!) ? (
             <DiscountLabel discount={product?.discount!} />

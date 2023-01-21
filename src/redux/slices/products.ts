@@ -3,6 +3,7 @@ import { Product, SortPayload } from '../../@types';
 
 interface ProductsState {
   products: Product[];
+  filteredProducts: Product[];
 }
 
 export const fetchProducts = createAsyncThunk(
@@ -18,6 +19,7 @@ export const fetchProducts = createAsyncThunk(
 
 const initialState: ProductsState = {
   products: [],
+  filteredProducts: [],
 };
 
 export const productsSlice = createSlice({
@@ -28,16 +30,24 @@ export const productsSlice = createSlice({
       state: ProductsState,
       action: PayloadAction<SortPayload>
     ) => {
-      console.log(action.payload);
       if (action.payload.queue === 'asc') {
-        state.products = state.products.sort((a: Product, b: Product) =>
-          a[action.payload.sort] < b[action.payload.sort] ? -1 : 1
+        state.filteredProducts = state.filteredProducts.sort(
+          (a: Product, b: Product) =>
+            a[action.payload.sort] < b[action.payload.sort] ? -1 : 1
         );
       } else {
-        state.products = state.products.sort((a: Product, b: Product) =>
-          a[action.payload.sort] < b[action.payload.sort] ? 1 : -1
+        state.filteredProducts = state.filteredProducts.sort(
+          (a: Product, b: Product) =>
+            a[action.payload.sort] < b[action.payload.sort] ? 1 : -1
         );
       }
+    },
+    searchProduct: (state: ProductsState, action: PayloadAction<string>) => {
+      state.filteredProducts = state.products.filter(
+        (product: Product) =>
+          product.name.includes(action.payload) ||
+          product.category.includes(action.payload)
+      );
     },
   },
   extraReducers: (builder) => {
@@ -45,11 +55,12 @@ export const productsSlice = createSlice({
       fetchProducts.fulfilled,
       (state: ProductsState, action: PayloadAction<Product[]>) => {
         state.products = action.payload;
+        state.filteredProducts = action.payload;
       }
     );
   },
 });
 
-export const { sortProducts } = productsSlice.actions;
+export const { sortProducts, searchProduct } = productsSlice.actions;
 
 export default productsSlice.reducer;
