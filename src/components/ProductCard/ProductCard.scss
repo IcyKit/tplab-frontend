@@ -134,7 +134,9 @@
           justify-content: center;
         }
         &-prices {
-          justify-content: space-between;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
           flex-wrap: wrap;
           &_old-price {
             h3 {

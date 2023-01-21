@@ -17,7 +17,7 @@ const NewPrice: React.FC<NewPriceProps> = ({ new_price }) => {
             {price[0]}
             <sup>
               {price[1]}
-              {price[1].length === 1 ? '9' : ''}
+              {String(price[1]).length === 1 ? '9' : ''}
             </sup>
             ₽
           </>
