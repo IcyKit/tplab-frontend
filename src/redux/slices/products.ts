@@ -28,13 +28,14 @@ export const productsSlice = createSlice({
       state: ProductsState,
       action: PayloadAction<SortPayload>
     ) => {
+      console.log(action.payload);
       if (action.payload.queue === "asc") {
         state.products = state.products.sort((a: Product, b: Product) =>
-          a[action.payload.sort] < b[action.payload.sort] ? 1 : -1
+          a[action.payload.sort] < b[action.payload.sort] ? -1 : 1
         );
       } else {
         state.products = state.products.sort((a: Product, b: Product) =>
-          a[action.payload.sort] < b[action.payload.sort] ? -1 : 1
+          a[action.payload.sort] < b[action.payload.sort] ? 1 : -1
         );
       }
     },

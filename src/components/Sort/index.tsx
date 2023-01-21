@@ -60,9 +60,10 @@ const Sort = () => {
     <div className="sort d-flex flex-row align-items-center">
       <p>{t("sort")}</p>
       <FormGroup>
-        <Input id="exampleSelect" name="select" type="select">
-          {sorting.map((sort) => (
+        <Input id="SortBySelect" name="SortBySelect" type="select">
+          {sorting.map((sort, index) => (
             <option
+              key={index}
               onClick={() =>
                 dispatch(sortProducts({ sort: sort.type, queue: sort.queue }))
               }

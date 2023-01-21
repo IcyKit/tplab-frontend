@@ -1,13 +1,13 @@
-import "./ProductsTable.scss";
-import { Table } from "reactstrap";
-import { useState } from "react";
-import { useSelector } from "react-redux";
-import ProductsTableItem from "../ProductsTableItem";
-import ProductsPagination from "../ProductsPagination";
-import ChangeContentPerPage from "../ChangeContentPerPage";
-import SearchProduct from "../SearchProduct";
-import { useTranslation } from "react-i18next";
-import { Product } from "../../@types";
+import './ProductsTable.scss';
+import { Table } from 'reactstrap';
+import { useState } from 'react';
+import { useSelector } from 'react-redux';
+import ProductsTableItem from '../ProductsTableItem';
+import ProductsPagination from '../ProductsPagination';
+import ChangeContentPerPage from '../ChangeContentPerPage';
+import SearchProduct from '../SearchProduct';
+import { useTranslation } from 'react-i18next';
+import { Product } from '../../@types';
 
 interface IProductsAndIndex extends Product {
   index: number;
@@ -22,10 +22,14 @@ const ProductsTable: React.FC = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const lastIndex = currentPage * contentPerPage;
   const firstIndex = lastIndex - contentPerPage;
-  const [searchValue, setSearchValue] = useState("");
+  const [searchValue, setSearchValue] = useState('');
 
   const onSearchInput = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearchValue(e.target.value);
+  };
+
+  const changeContent = (num: number): void => {
+    setContentPerPage(num);
   };
 
   return (
@@ -47,11 +51,11 @@ const ProductsTable: React.FC = () => {
       <Table className="products-table" hover responsive size="">
         <thead>
           <tr className="products-table__title">
-            <th>{t("photo")}</th>
-            <th>{t("name")}</th>
-            <th className="text-center">{t("views")}</th>
-            <th className="text-center">{t("start-date")}</th>
-            <th className="text-center">{t("end-date")}</th>
+            <th>{t('photo')}</th>
+            <th>{t('name')}</th>
+            <th className="text-center">{t('views')}</th>
+            <th className="text-center">{t('start-date')}</th>
+            <th className="text-center">{t('end-date')}</th>
           </tr>
         </thead>
         <tbody>
@@ -63,6 +67,7 @@ const ProductsTable: React.FC = () => {
             )
             .map((product: IProductsAndIndex, index: number) => (
               <ProductsTableItem
+                key={index}
                 name={product.name}
                 image_url={product.image_url}
                 category={product.category}

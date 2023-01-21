@@ -16,7 +16,12 @@ const ChangeContentPerPage: React.FC<ChangeContentPerPageProps> = ({
   return (
     <FormGroup>
       <Label for="contentPerPage">{t("quant")}</Label>
-      <Input id="contentPerPage" name="select" type="select" defaultValue={4}>
+      <Input
+        id="contentPerPage"
+        name="selectContentPerPage"
+        type="select"
+        defaultValue={4}
+      >
         <option onClick={() => setContentPerPage(2)}>2</option>
         <option onClick={() => setContentPerPage(3)}>3</option>
         <option onClick={() => setContentPerPage(4)}>4</option>
