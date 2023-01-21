@@ -11,7 +11,7 @@ import { Product } from '../../@types';
 const ProductCard: React.FC = () => {
   const { id } = useParams<{ id: string }>();
   const product: Product = useSelector(
-    (state: { [index: string]: any }) => state.products.products[id]
+    (state: { [index: string]: any }) => state.products.filteredProducts[id]
   );
 
   return (
