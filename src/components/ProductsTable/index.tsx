@@ -3,12 +3,9 @@ import { Table } from 'reactstrap';
 import { useState } from 'react';
 import { useSelector } from 'react-redux';
 import ProductsTableItem from '../ProductsTableItem';
-import ProductsPagination from '../ProductsPagination';
-import ChangeContentPerPage from '../ChangeContentPerPage';
-import SearchProduct from '../SearchProduct';
 import { useTranslation } from 'react-i18next';
 import { Product } from '../../@types';
-import Sort from '../Sort';
+import TableSettings from '../TableSettings';
 
 interface IProductsAndIndex extends Product {
   index: number;
@@ -30,30 +27,11 @@ const ProductsTable: React.FC = () => {
 
   return (
     <>
-      <div>
-        <div className="d-flex justify-content-between flex-wrap">
-          <Sort />
-          <SearchProduct />
-        </div>
-        <div
-          className={`d-flex flex-wrap justify-content-${
-            contentPerPage < filteredProducts.length ? 'between' : 'end'
-          } align-items-end`}
-        >
-          {contentPerPage < filteredProducts.length && (
-            <ProductsPagination
-              contentPerPage={contentPerPage}
-              products={filteredProducts}
-              setCurrentPage={setCurrentPage}
-            />
-          )}
-          <ChangeContentPerPage
-            changeContent={changeContent}
-            products={filteredProducts}
-            contentPerPage={contentPerPage}
-          />
-        </div>
-      </div>
+      <TableSettings
+        changeContent={changeContent}
+        contentPerPage={contentPerPage}
+        setCurrentPage={setCurrentPage}
+      />
       <Table className="products-table" hover responsive size="">
         <thead>
           <tr className="products-table__title">

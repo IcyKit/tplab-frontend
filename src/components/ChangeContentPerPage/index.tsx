@@ -3,15 +3,13 @@ import { useTranslation } from 'react-i18next';
 import { Product } from '../../@types';
 
 interface ChangeContentPerPageProps {
-  changeContent: (number: number) => any;
+  changeContent: (number: number) => void;
   products: Product[];
-  contentPerPage: number;
 }
 
 const ChangeContentPerPage: React.FC<ChangeContentPerPageProps> = ({
   changeContent,
   products,
-  contentPerPage,
 }) => {
   const { t } = useTranslation();
 

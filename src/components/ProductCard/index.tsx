@@ -38,7 +38,7 @@ const ProductCard: React.FC = () => {
           <div className="product-card__content_right">
             <h2>{product?.name}</h2>
             <div className="product-card__content_right-rating">
-              <Rating value={product?.stars} />
+              <Rating value={product?.stars} readOnly />
             </div>
             <div className="product-card__content_right-prices">
               <OldPrice old_price={product?.old_price!} />

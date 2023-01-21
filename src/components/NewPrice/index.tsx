@@ -1,4 +1,4 @@
-import { useTranslation } from "react-i18next";
+import { useTranslation } from 'react-i18next';
 
 interface NewPriceProps {
   new_price: string | number;
@@ -7,7 +7,7 @@ interface NewPriceProps {
 const NewPrice: React.FC<NewPriceProps> = ({ new_price }) => {
   const { t } = useTranslation();
   // Разбиваем массив на два элемента, потому что в БД данные хранятся не однородно. Где-то строчки, где-то числа
-  let price: string[] = String(new_price).split(".");
+  let price: string[] = String(new_price).split('.');
 
   return (
     <div className="product-card__content_right-prices_new-price">
@@ -15,13 +15,17 @@ const NewPrice: React.FC<NewPriceProps> = ({ new_price }) => {
         {price.length > 0 ? (
           <>
             {price[0]}
-            <sup>{price[1]}</sup>₽
+            <sup>
+              {price[1]}
+              {price[1].length === 1 ? '9' : ''}
+            </sup>
+            ₽
           </>
         ) : (
           <>price[0]₽</>
         )}
       </h3>
-      <p>{t("new-price")}</p>
+      <p>{t('new-price')}</p>
     </div>
   );
 };
