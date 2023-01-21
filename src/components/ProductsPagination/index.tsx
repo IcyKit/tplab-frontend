@@ -1,5 +1,5 @@
-import { Pagination, PaginationItem, PaginationLink } from "reactstrap";
-import { Product } from "../../@types";
+import { Pagination, PaginationItem, PaginationLink } from 'reactstrap';
+import { Product } from '../../@types';
 
 interface ProductsPaginationProps {
   products: Product[];
@@ -14,7 +14,7 @@ const ProductsPagination: React.FC<ProductsPaginationProps> = ({
 }) => {
   const pages: string[] = new Array(
     Math.ceil(products.length / contentPerPage)
-  ).fill("");
+  ).fill('');
 
   return (
     <Pagination>

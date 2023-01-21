@@ -3,53 +3,54 @@ import { FormGroup, Input } from "reactstrap";
 import { useDispatch } from "react-redux";
 import { sortProducts } from "../../redux/slices/products";
 import { useTranslation } from "react-i18next";
+import { SortPayload } from "../../@types";
 
 const Sort = () => {
-  interface SortingTypes {
-    name: string;
-    type: "name" | "views" | "start_date" | "end_date";
-    queue: string;
-  }
+  // interface SortingTypes {
+  //   name: string;
+  //   type: string;
+  //   queue: string;
+  // }
 
-  const sorting: SortingTypes[] = [
+  const sorting: SortPayload[] = [
     {
-      name: "sort-name-asc",
-      type: "name",
+      type: "sort-name-asc",
+      sort: "name",
       queue: "asc",
     },
     {
-      name: "sort-name-desc",
-      type: "name",
+      type: "sort-name-desc",
+      sort: "name",
       queue: "desc",
     },
     {
-      name: "sort-views-asc",
-      type: "views",
+      type: "sort-views-asc",
+      sort: "views",
       queue: "asc",
     },
     {
-      name: "sort-views-desc",
-      type: "views",
+      type: "sort-views-desc",
+      sort: "views",
       queue: "desc",
     },
     {
-      name: "sort-start-asc",
-      type: "start_date",
+      type: "sort-start-asc",
+      sort: "start_date",
       queue: "asc",
     },
     {
-      name: "sort-start-desc",
-      type: "start_date",
+      type: "sort-start-desc",
+      sort: "start_date",
       queue: "desc",
     },
     {
-      name: "sort-end-asc",
-      type: "end_date",
+      type: "sort-end-asc",
+      sort: "end_date",
       queue: "asc",
     },
     {
-      name: "sort-end-desc",
-      type: "end_date",
+      type: "sort-end-desc",
+      sort: "end_date",
       queue: "desc",
     },
   ];
@@ -60,20 +61,23 @@ const Sort = () => {
     <div className="sort d-flex flex-row align-items-center">
       <p>{t("sort")}</p>
       <FormGroup>
-        <Input id="SortBySelect" name="SortBySelect" type="select">
+        <Input
+          id="SortBySelect"
+          name="SortBySelect"
+          type="select"
+          onChange={(e) => dispatch(sortProducts(JSON.parse(e.target.value)))}
+        >
           {sorting.map((sort, index) => (
             <option
               key={index}
-              onClick={() =>
-                dispatch(sortProducts({ sort: sort.type, queue: sort.queue }))
-              }
+              value={JSON.stringify({ sort: sort.sort, queue: sort.queue })}
             >
-              {t(sort.name)}
+              {t(sort.type!)}
             </option>
           ))}
         </Input>
       </FormGroup>
-    </div>
+    </div >
   );
 };
 

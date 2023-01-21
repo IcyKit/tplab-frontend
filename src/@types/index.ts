@@ -14,7 +14,7 @@ export interface Product {
 }
 
 export interface SortPayload {
-  sort: "name" | "views" | "start_date" | "end_date";
+  sort: 'name' | 'views' | 'start_date' | 'end_date';
   queue: string;
   type?: string;
 }

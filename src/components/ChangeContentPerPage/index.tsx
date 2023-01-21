@@ -1,34 +1,35 @@
-import { FormGroup, Label, Input } from "reactstrap";
-import { useTranslation } from "react-i18next";
-import { Product } from "../../@types";
+import { FormGroup, Label, Input } from 'reactstrap';
+import { useTranslation } from 'react-i18next';
+import { Product } from '../../@types';
 
 interface ChangeContentPerPageProps {
-  setContentPerPage: (number: number) => any;
+  changeContent: (number: number) => any;
   products: Product[];
+  contentPerPage: number;
 }
 
 const ChangeContentPerPage: React.FC<ChangeContentPerPageProps> = ({
-  setContentPerPage,
+  changeContent,
   products,
+  contentPerPage,
 }) => {
   const { t } = useTranslation();
 
   return (
     <FormGroup>
-      <Label for="contentPerPage">{t("quant")}</Label>
+      <Label for="contentPerPage">{t('quant')}</Label>
       <Input
         id="contentPerPage"
         name="selectContentPerPage"
         type="select"
         defaultValue={4}
+        onChange={(e) => changeContent(Number(e.target.value))}
       >
-        <option onClick={() => setContentPerPage(2)}>2</option>
-        <option onClick={() => setContentPerPage(3)}>3</option>
-        <option onClick={() => setContentPerPage(4)}>4</option>
-        <option onClick={() => setContentPerPage(5)}>5</option>
-        <option onClick={() => setContentPerPage(products.length)}>
-          {t("all-products")}
-        </option>
+        <option value={2}>2</option>
+        <option value={3}>3</option>
+        <option value={4}>4</option>
+        <option value={5}>5</option>
+        <option value={products.length}>{t('all-products')}</option>
       </Input>
     </FormGroup>
   );

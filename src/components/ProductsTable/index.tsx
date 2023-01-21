@@ -43,8 +43,9 @@ const ProductsTable: React.FC = () => {
           />
         )}
         <ChangeContentPerPage
-          setContentPerPage={setContentPerPage}
+          changeContent={changeContent}
           products={products}
+          contentPerPage={contentPerPage}
         />
         <SearchProduct onSearchInput={onSearchInput} />
       </div>
