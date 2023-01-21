@@ -1,0 +1,11 @@
+.sort-stars {
+  max-width: 230px;
+}
+
+@media screen and (max-width: 720px) {
+  .sort-stars {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}

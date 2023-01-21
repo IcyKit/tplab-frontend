@@ -1,9 +1,12 @@
-import React from 'react';
-import Sort from '../Sort';
-import SearchProduct from '../SearchProduct';
-import ProductsPagination from '../ProductsPagination';
-import ChangeContentPerPage from '../ChangeContentPerPage';
-import { useSelector } from 'react-redux';
+import React from "react";
+import Sort from "../Sort";
+import SearchProduct from "../SearchProduct";
+import ProductsPagination from "../ProductsPagination";
+import ChangeContentPerPage from "../ChangeContentPerPage";
+import { useSelector } from "react-redux";
+import SortProductStars from "../SortProductStars";
+
+import "./TableSettings.scss";
 
 interface TableSettingsProps {
   contentPerPage: number;
@@ -21,16 +24,12 @@ const TableSettings: React.FC<TableSettingsProps> = ({
   );
   return (
     <>
-      <div>
-        <div className="d-flex justify-content-between flex-wrap">
+      <div className="table-settings">
+        <div className="table-settings__top">
           <Sort />
           <SearchProduct />
         </div>
-        <div
-          className={`d-flex flex-wrap justify-content-${
-            contentPerPage < filteredProducts.length ? 'between' : 'end'
-          } align-items-end`}
-        >
+        <div className={`table-settings__bottom`}>
           {contentPerPage < filteredProducts.length && (
             <ProductsPagination
               contentPerPage={contentPerPage}
@@ -38,6 +37,7 @@ const TableSettings: React.FC<TableSettingsProps> = ({
               setCurrentPage={setCurrentPage}
             />
           )}
+          <SortProductStars />
           <ChangeContentPerPage
             changeContent={changeContent}
             products={filteredProducts}

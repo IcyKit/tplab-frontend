@@ -5,7 +5,7 @@
 - TypeScript
 - React
 - Redux Toolkit
-- React Router (v5)
+- React Router (v5) (предпочитаю v6, но в ТЗ была именно пятая версия)
 - Webpack
 - SCSS
 - i18n

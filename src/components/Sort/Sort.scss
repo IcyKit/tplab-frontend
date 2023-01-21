@@ -1,4 +1,6 @@
 .sort {
+  display: flex;
+  align-items: center;
   p {
     color: #4D5969;
     margin-right: 15px;
@@ -12,5 +14,12 @@
       text-decoration: underline;
       cursor: pointer;
     }
+  }
+}
+
+@media screen and (max-width: 720px) {
+  .sort {
+    width: 100%;
+    justify-content: space-between;
   }
 }
