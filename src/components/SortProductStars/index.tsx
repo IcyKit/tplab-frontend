@@ -4,7 +4,9 @@ import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { sortByStars } from "../../redux/slices/products";
 import "./SortProductStars.scss";
+import { useTranslation } from "react-i18next";
 const SortProductStars = () => {
+  const { t } = useTranslation();
   const [value, setValue] = useState<number | null>(0);
   const dispatch = useDispatch();
 
@@ -14,7 +16,7 @@ const SortProductStars = () => {
 
   return (
     <div className="sort-stars mb-3">
-      <Typography component="legend">Сортировка по кол-ву звезд</Typography>
+      <Typography component="legend">{t("sort-stars")}</Typography>
       <Rating
         name="stars-sort"
         value={value}

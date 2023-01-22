@@ -1,11 +1,11 @@
-import './ProductsTable.scss';
-import { Table } from 'reactstrap';
-import { useState } from 'react';
-import { useSelector } from 'react-redux';
-import ProductsTableItem from '../ProductsTableItem';
-import { useTranslation } from 'react-i18next';
-import { Product } from '../../@types';
-import TableSettings from '../TableSettings';
+import "./ProductsTable.scss";
+import { Table } from "reactstrap";
+import { useState } from "react";
+import { useSelector } from "react-redux";
+import ProductsTableItem from "../ProductsTableItem";
+import { useTranslation } from "react-i18next";
+import { Product } from "../../@types";
+import TableSettings from "../TableSettings";
 
 interface IProductsAndIndex extends Product {
   index: number;
@@ -31,15 +31,16 @@ const ProductsTable: React.FC = () => {
         changeContent={changeContent}
         contentPerPage={contentPerPage}
         setCurrentPage={setCurrentPage}
+        currentPage={currentPage}
       />
       <Table className="products-table" hover responsive size="">
         <thead>
           <tr className="products-table__title">
-            <th>{t('photo')}</th>
-            <th>{t('name')}</th>
-            <th className="text-center">{t('views')}</th>
-            <th className="text-center">{t('start-date')}</th>
-            <th className="text-center">{t('end-date')}</th>
+            <th>{t("photo")}</th>
+            <th>{t("name")}</th>
+            <th className="text-center">{t("views")}</th>
+            <th className="text-center">{t("start-date")}</th>
+            <th className="text-center">{t("end-date")}</th>
           </tr>
         </thead>
         <tbody>

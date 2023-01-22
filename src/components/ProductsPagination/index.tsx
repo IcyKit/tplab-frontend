@@ -1,26 +1,33 @@
-import { Pagination, PaginationItem, PaginationLink } from 'reactstrap';
-import { Product } from '../../@types';
+import { Pagination, PaginationItem, PaginationLink } from "reactstrap";
+import { Product } from "../../@types";
 
 interface ProductsPaginationProps {
   products: Product[];
   setCurrentPage: (page: number) => void;
   contentPerPage: number;
+  currentPage: number;
 }
 
 const ProductsPagination: React.FC<ProductsPaginationProps> = ({
   products,
   setCurrentPage,
   contentPerPage,
+  currentPage,
 }) => {
   const pages: string[] = new Array(
     Math.ceil(products.length / contentPerPage)
-  ).fill('');
+  ).fill("");
 
   return (
     <Pagination>
-      <PaginationItem>
-        <PaginationLink previous href="#" />
-      </PaginationItem>
+      {currentPage > 1 && (
+        <PaginationItem>
+          <PaginationLink
+            previous
+            onClick={() => setCurrentPage(currentPage - 1)}
+          />
+        </PaginationItem>
+      )}
       {pages.map((_, index) => (
         <PaginationItem>
           <PaginationLink onClick={() => setCurrentPage(index + 1)}>
@@ -28,9 +35,14 @@ const ProductsPagination: React.FC<ProductsPaginationProps> = ({
           </PaginationLink>
         </PaginationItem>
       ))}
-      <PaginationItem>
-        <PaginationLink next href="#" />
-      </PaginationItem>
+      {currentPage < pages.length && (
+        <PaginationItem>
+          <PaginationLink
+            next
+            onClick={() => setCurrentPage(currentPage + 1)}
+          />
+        </PaginationItem>
+      )}
     </Pagination>
   );
 };

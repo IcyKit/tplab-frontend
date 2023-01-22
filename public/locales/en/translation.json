@@ -20,5 +20,6 @@
   "sort-start-asc": "by start date (ASC)",
   "sort-start-desc": "by start date (DESC)",
   "sort-end-asc": "by end date (ASC)",
-  "sort-end-desc": "by end date (DESC)"
+  "sort-end-desc": "by end date (DESC)",
+  "sort-stars": "Sort by stars"
 }

@@ -12,12 +12,14 @@ interface TableSettingsProps {
   contentPerPage: number;
   setCurrentPage: (page: number) => void;
   changeContent: (num: number) => void;
+  currentPage: number;
 }
 
 const TableSettings: React.FC<TableSettingsProps> = ({
   contentPerPage,
   setCurrentPage,
   changeContent,
+  currentPage,
 }) => {
   const { filteredProducts } = useSelector(
     (state: { [key: string]: any }) => state.products
@@ -35,6 +37,7 @@ const TableSettings: React.FC<TableSettingsProps> = ({
               contentPerPage={contentPerPage}
               products={filteredProducts}
               setCurrentPage={setCurrentPage}
+              currentPage={currentPage}
             />
           )}
           <SortProductStars />

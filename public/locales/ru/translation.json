@@ -20,5 +20,6 @@
   "sort-start-asc": "по дате начала (ASC)",
   "sort-start-desc": "по дате начала (DESC)",
   "sort-end-asc": "по дате конца (ASC)",
-  "sort-end-desc": "по дате конца (DESC)"
+  "sort-end-desc": "по дате конца (DESC)",
+  "sort-stars": "Сортировать по кол-ву звезд"
 }
