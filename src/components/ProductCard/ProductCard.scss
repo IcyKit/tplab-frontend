@@ -39,6 +39,9 @@
         display: flex;
         justify-content: flex-end;
         margin-bottom: 20px;
+        span {
+          color: #344050;
+        }
       }
       &-prices {
         display: flex;
