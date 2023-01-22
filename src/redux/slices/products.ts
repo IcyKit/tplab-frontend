@@ -46,8 +46,8 @@ export const productsSlice = createSlice({
     searchProduct: (state: ProductsState, action: PayloadAction<string>) => {
       state.filteredProducts = state.products.filter(
         (product: Product) =>
-          product.name.includes(action.payload) ||
-          product.category.includes(action.payload)
+          product.name.toLowerCase().includes(action.payload.toLowerCase()) ||
+          product.category.toLowerCase().includes(action.payload.toLowerCase())
       );
     },
     sortByStars: (
