@@ -1,12 +1,12 @@
-import React from 'react';
-import './App.scss';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import { fetchProducts } from './redux/slices/products';
-import { useAppDispatch } from './redux/store';
-import { useEffect } from 'react';
+import React from "react";
+import "./App.scss";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { fetchProducts } from "./redux/slices/products";
+import { useAppDispatch } from "./redux/store";
+import { useEffect } from "react";
 
-const Product = React.lazy(() => import('./pages/Product'));
-const Home = React.lazy(() => import('./pages/Home'));
+const Product = React.lazy(() => import("./pages/Product"));
+const Home = React.lazy(() => import("./pages/Home"));
 
 const App: React.FC = () => {
   const dispatch = useAppDispatch();
@@ -31,5 +31,3 @@ const App: React.FC = () => {
 };
 
 export default App;
-
-// 14.5 Баллов

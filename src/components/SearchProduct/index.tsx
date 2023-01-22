@@ -4,7 +4,6 @@ import "./SearchProduct.scss";
 import { useTranslation } from "react-i18next";
 import { useDispatch } from "react-redux";
 import { searchProduct } from "../../redux/slices/products";
-import product from "../../pages/Product";
 
 const SearchProduct: React.FC = () => {
   const { t } = useTranslation();
