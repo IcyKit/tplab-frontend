@@ -30,7 +30,10 @@ const ProductsPagination: React.FC<ProductsPaginationProps> = ({
       )}
       {pages.map((_, index) => (
         <PaginationItem>
-          <PaginationLink onClick={() => setCurrentPage(index + 1)}>
+          <PaginationLink
+            className={`${currentPage === index + 1 ? "fw-bold" : ""}`}
+            onClick={() => setCurrentPage(index + 1)}
+          >
             {index + 1}
           </PaginationLink>
         </PaginationItem>
